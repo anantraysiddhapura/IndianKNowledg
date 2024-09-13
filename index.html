@@ -1,0 +1,342 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indian Knowledge</title>
+
+  <!-- Google Font Import for Protest Guerrilla -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap">
+
+  <style>
+    /* Reset some default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Styling the navbar */
+    nav {
+      background-color: rgba(34, 34, 34, 1); /* Navbar background color */
+      padding: 10px;
+      font-family: Arial, sans-serif;
+      box-shadow: 0px 4px 2px -2px gray;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap; /* Makes navbar wrap for smaller screens */
+    }
+
+    /* Styling the nav items container */
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex: 1;
+      flex-wrap: wrap;
+    }
+
+    /* Styling individual nav items */
+    nav ul li {
+      position: relative;
+    }
+
+    /* Styling links */
+    nav ul li a {
+      text-decoration: none; /* Remove underline */
+      color: rgba(255, 203, 55, 1); /* Font color */
+      font-size: 16px; /* Default font size */
+      padding: 10px 15px;
+      display: block;
+      cursor: pointer; /* Cursor pointer on hover */
+    }
+
+    /* Dropdown items */
+    nav ul li ul {
+      position: absolute;
+      display: none;
+      top: 40px;
+      left: 0;
+      background-color: #fff;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    nav ul li ul li {
+      width: 150px;
+    }
+
+    nav ul li:hover ul {
+      display: block;
+    }
+
+    /* Navbar hover effects */
+    nav ul li a:hover {
+      background-color: #0073e6;
+      color: white;
+    }
+
+    /* Specific styling for the "Indian Knowledge" */
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+    }
+
+    .logo h4 {
+      font-family: 'Protest Guerrilla', cursive;
+      font-size: 66px; /* Font size for "Indian Knowledge" */
+      font-weight: 900; /* Bold font */
+      color: rgba(255, 203, 55, 1); /* Font color */
+      margin: 0; /* Remove default margin */
+      text-decoration: none; /* Remove underline */
+      cursor: pointer; /* Cursor pointer on hover */
+      text-align: center;
+    }
+
+    /* Toggle Switch Styling */
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 30px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(255, 203, 55, 1); /* Same color as previous button */
+      transition: .4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 2px;
+      background-color: white;
+      transition: .4s;
+    }
+
+    input:checked + .slider {
+      background-color: #0073e6; /* Toggle on background */
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    /* Rounded slider */
+    .slider.round {
+      border-radius: 34px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+
+    /* Body content styling */
+    .container {
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      min-height: calc(100vh - 70px); /* Adjust min-height to ensure it covers remaining space */
+    }
+
+    .hero {
+      background-color: #fff;
+      padding: 40px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      color: #333;
+    }
+
+    .content {
+      display: flex;
+      justify-content: center; /* Center align the content */
+    }
+
+    .content .section {
+      width: 100%; /* Full width */
+      max-width: 1200px; /* Max width for large screens */
+      padding: 20px;
+      background-color: #fff; /* Set background color to white */
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+      height: 23.6rem; /* Set height */
+      overflow: auto; /* Handle overflow if content exceeds height */
+    }
+
+    .section h2 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 15px;
+      font-family: Arial, sans-serif; /* Default font */
+    }
+
+    .section p {
+      font-size: 18px;
+      color: #666;
+      line-height: 1.6;
+      word-wrap: break-word; /* Ensures long words break to the next line */
+      overflow-wrap: break-word; /* Provides compatibility with various browsers */
+    }
+
+    /* Responsive styling for smaller devices */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        padding: 15px;
+      }
+
+      .logo h4 {
+        font-size: 48px; /* Decrease size for mobile */
+      }
+
+      nav ul {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav ul li a {
+        font-size: 14px;
+        padding: 8px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .section h2 {
+        font-size: 24px;
+      }
+
+      .section p {
+        font-size: 16px;
+      }
+
+      .content .section {
+        height: auto; /* Allow dynamic height for mobile */
+      }
+    }
+
+    /* Additional responsiveness for very small devices */
+    @media (max-width: 480px) {
+      .logo h4 {
+        font-size: 36px;
+      }
+
+      .section h2 {
+        font-size: 20px;
+      }
+
+      .section p {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <!-- Left links (can be empty or with other links) -->
+    <ul>
+      <li><a href="#">News</a>
+        <ul>
+          <li><a href="#">India</a></li>
+          <li><a href="#">World</a></li>
+          <li><a href="#">Cities</a></li>
+          <li><a href="#">Entertainment</a></li>
+          <li><a href="#">Business</a></li>
+          <li><a href="#">Technology</a></li>
+          <li><a href="#">Health</a></li>
+          <li><a href="#">Education</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Live</a></li>
+      <li><a href="#">Trending</a></li>
+    </ul>
+
+    <!-- Indian Knowledge centered -->
+    <div class="logo-container">
+      <div class="logo">
+        <h4>Indian Knowledge</h4>
+      </div>
+    </div>
+
+    <!-- Right links -->
+    <ul>
+      <li><a href="#">Photos</a></li>
+      <li><a href="#">Subscribe</a></li>
+      <li>
+        <!-- Toggle Switch -->
+        <label class="toggle-switch">
+          <input type="checkbox" id="toggleSwitch">
+          <span class="slider round"></span>
+        </label>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Body Content -->
+  <div class="container">
+    <div class="hero">
+      <h1 id="heroTitle">Welcome to Indian Knowledge</h1>
+    </div>
+
+    <div class="content">
+      <div class="section">
+        <h2 id="sectionTitle">Antarctica</h2>
+        <p id="p1">Antartica 7th continent which is soo much dry that it is also considere as deser where no one lives which average temperature is -89C and wind speed of 300km/h...Around 350bc, one of the first person who talk about Antartica is a greek philosophers name aristotel who also know that earth is sphere and there is some place on north of earth name artic,they call it arctos derivded from bear constellation,they know that if some place name arctos is in north then some land is also in its opposit side mean in its southside so they called it antarctos means opposit of bear constellation,phraps human first steped on Antartica around 80s and 90s but alot before that Antartica can be visible on mapes. people know that there are some land in the south of earth but they don't know how big is it, is any kind of species are living there,its shape, so in 1530 AD when french explorer draw the world map they dred the rufed map and they name this place as 'Terra Australis incognita' means Unknown southern land,then in 1773 British mavel officer James Cook became the first person to go south of earth near Antartica but he does not goes on the land of Antartica, they go to south of earth but soon the returned to their home about 130km far from antartica after seeing glacoer even they doesn't see Antartica but they conclude that Terra Australis incognita exist and then they broudly said that "I CAN BE BOLD ENOUGH TO SAY NO MAN WILL EVER VENTURE FARTHER THAN I HAVE DONE AND THAT THE LANDS WHICH LIE TO THE SOUTH WILL NEVER BE EXPLORED" they are soo sure that no one can reach this place but it is false after 50 years of this event man steps on the Antartica,now who steps first is controversial because soo many people claimed that they are the first one to step on Antartica,like British army captain John Davis claimed that they are the first one to step on Antartica as their ship by mistake reached Antartica, another exaple of this is that a norwegian ship whose name is Antartica reached its costal region, people in that ship came to the costal region by life boat and goes to the land of Antartica, in this boat there is a norwegian name Carsten BorchGrevink  claimed that he is the first one to step on Antartica,moreover there are multiple people who claimed the same thing that they are the first one to step on Antartica.now if it is a continent then there must be some countries but no, not even a single country,factory,farming,driving,bomb testing sites and many more areas doesn't exist beacuse of antartic treaty sign by 12 most powerfull nation on 1 december 1959,which prohibit every single human activity except researching on the land of Antartica,which teach us that nothing is hard if we come together,if we use our power in right way,a diverse are can be prserve from any pollution,junk,radiation,carbon emmiton and all bad stuf</p>
+      </div>
+    </div>
+
+    <div style="display: none;">
+      <h2 id="altTitle">એન્ટાર્કટિક</h2>
+      <p id="p2">એન્ટાર્કટિકા 7મો ખંડ જે એટલો શુષ્ક છે કે તેને રણ તરીકે પણ ગણવામાં આવે છે જ્યાં કોઈ રહેતું નથી જેનું સરેરાશ તાપમાન -89C છે અને પવનની ઝડપ 300km/h છે...આશરે 350bc, એન્ટાર્ટિકા વિશે વાત કરનાર પ્રથમ વ્યક્તિમાંથી એક ગ્રીક છે. ફિલોસોફરો નામ એરિસ્ટોટેલ રાખે છે જેઓ એ પણ જાણે છે કે પૃથ્વી ગોળ છે અને પૃથ્વીની ઉત્તરે કોઈ જગ્યા છે જેનું નામ આર્ટિક છે, તેઓ તેને રીંછ નક્ષત્રમાંથી ઉતરી આવેલ આર્ક્ટોસ કહે છે, તેઓ જાણે છે કે જો કોઈ જગ્યાનું નામ આર્ક્ટોસ ઉત્તરમાં હોય તો અમુક જમીન તેની વિરુદ્ધમાં પણ હોય છે. બાજુનો અર્થ તેની દક્ષિણ બાજુએ થાય છે તેથી તેઓ તેને એન્ટાર્કટોસ કહે છે એટલે રીંછ નક્ષત્રની વિરુદ્ધ, 80 અને 90 ના દાયકાની આસપાસ માનવીએ એન્ટાર્કટિકા પર પ્રથમ પગ મૂક્યો હતો પરંતુ તે પહેલા એન્ટાર્કટિકા નકશા પર જોઈ શકાય છે. લોકો જાણે છે કે પૃથ્વીની દક્ષિણમાં કેટલીક જમીન છે પરંતુ તેઓ જાણતા નથી કે તે કેટલી મોટી છે, શું ત્યાં કોઈપણ પ્રકારની પ્રજાતિઓ રહે છે, તેનો આકાર છે, તેથી 1530 એડી જ્યારે ફ્રેન્ચ સંશોધકોએ વિશ્વનો નકશો દોર્યો ત્યારે તેઓએ રુફડને ડ્રેઇન કર્યું. નકશો અને તેઓ આ સ્થળનું નામ 'ટેરા ઑસ્ટ્રેલિસ ઇન્કોગ્નિટા' એટલે કે અજાણી દક્ષિણી ભૂમિ તરીકે રાખે છે, ત્યારબાદ 1773માં બ્રિટીશ મેવેલ ઓફિસર જેમ્સ કૂક એન્ટાર્કટિકાની નજીક પૃથ્વીની દક્ષિણે જનાર પ્રથમ વ્યક્તિ બન્યા પરંતુ તેઓ એન્ટાર્કટિકાની ભૂમિ પર જતા નથી, તેઓ ત્યાં જાય છે. પૃથ્વીની દક્ષિણે, પરંતુ ટૂંક સમયમાં તેઓ એન્ટાર્ટિકાથી લગભગ 130 કિમી દૂર તેમના ઘરે પાછા ફર્યા અને ગ્લેકોઅર જોયા પછી પણ તેઓ એન્ટાર્ટિકાને જોતા નથી પરંતુ તેઓ તારણ આપે છે કે ટેરા ઑસ્ટ્રેલિસ ઇન્કોગ્નિટા અસ્તિત્વમાં છે અને પછી તેઓએ હિંમતભેર કહ્યું કે "હું કોઈ માણસ નહીં કહેવા માટે પૂરતો હિંમતવાન બની શકું છું. મેં કર્યું છે તેના કરતા વધુ આગળનું સાહસ છે અને તે જમીનો જે દક્ષિણમાં આવેલી છે તે ક્યારેય શોધવામાં આવશે નહીં" તેમને ખાતરી છે કે આ સ્થાને કોઈ પહોંચી શકશે નહીં પરંતુ તે 50 પછી ખોટું છે આ ઘટનાના વર્ષો પછી માણસ એન્ટાર્કટિકામાં પગ મૂકે છે, હવે કોણ પહેલું પગલું ભરે છે તે વિવાદાસ્પદ છે કારણ કે ઘણા લોકોએ દાવો કર્યો હતો કે તેઓ એન્ટાર્કટિકામાં પગ મૂકનાર પ્રથમ વ્યક્તિ છે, જેમ કે બ્રિટિશ આર્મી કેપ્ટન જોન ડેવિસે દાવો કર્યો હતો કે તેઓ એન્ટાર્ટિકા પર પગ મૂકનાર પ્રથમ વ્યક્તિ છે. તેમનું જહાજ ભૂલથી એન્ટાર્કટિકામાં પહોંચી ગયું, આનું બીજું ઉદાહરણ એ છે કે નોર્વેનું એક જહાજ જેનું નામ એન્ટાર્ટિકા છે તે તેના દરિયાકાંઠાના પ્રદેશમાં પહોંચ્યું, તે જહાજમાં લોકો લાઇફ બોટ દ્વારા દરિયાકાંઠાના પ્રદેશમાં આવ્યા અને એન્ટાર્કટિકાની ભૂમિ પર ગયા, આ બોટમાં છે. એક નોર્વેજીયન નામ કાર્સ્ટન બોર્ચગ્રેવિન્કે દાવો કર્યો કે એન્ટાર્ટિકા પર પગ મૂકનાર તે પ્રથમ વ્યક્તિ છે, વધુમાં એવા ઘણા લોકો છે જેમણે એક જ વાતનો દાવો કર્યો હતો કે તેઓ એન્ટાર્ટિકા પર પગ મૂકનાર પ્રથમ વ્યક્તિ છે. હવે જો તે ખંડ છે તો કેટલાક દેશો હોવા જોઈએ. પરંતુ ના, 1 ડિસેમ્બર 1959 ના રોજ 12 સૌથી શક્તિશાળી રાષ્ટ્ર દ્વારા એન્ટાર્ટિક સંધિના સાઇનને કારણે એક પણ દેશ, ફેક્ટરી, ખેતી, ડ્રાઇવિંગ, બોમ્બ પરીક્ષણ સાઇટ્સ અને ઘણા વધુ ક્ષેત્રો અસ્તિત્વમાં નથી, જે સંશોધન સિવાય દરેક માનવ પ્રવૃત્તિ પર પ્રતિબંધ મૂકે છે. એન્ટાર્કટિકાની ભૂમિ, જે આપણને શીખવે છે કે જો આપણે સાથે આવીએ તો કંઈપણ મુશ્કેલ નથી, જો આપણે આપણી શક્તિનો યોગ્ય રીતે ઉપયોગ કરીએ, તો વિવિધ પ્રકારની વસ્તુઓને કોઈપણ પ્રદૂષણ, જંક, રેડિયેશન, કાર્બન એમિટન અને તમામ ખરાબ સામગ્રીથી બચાવી શકાય છે.</p>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript to handle toggle switch functionality
+    const toggleSwitch = document.getElementById('toggleSwitch');
+    const paragraph1 = document.getElementById('p1');
+    const paragraph2 = document.getElementById('p2');
+    const title1 = document.getElementById('sectionTitle');
+    const altTitle = document.getElementById('altTitle');
+    const heroTitle = document.getElementById('heroTitle');
+
+    toggleSwitch.addEventListener('change', function() {
+      if (this.checked) {
+        // Change paragraph and headings when switch is on
+        paragraph1.innerText = paragraph2.innerText;
+        title1.innerText = altTitle.innerText;
+        heroTitle.innerText = "ભારતીય જ્ઞાનમાં આપનું સ્વાગત છે";
+      } else {
+        // Reset to original content when switch is off
+        paragraph1.innerText = "Antarctica, the 7th continent, is a land of extremes. It is so dry that it is considered a desert with average temperatures below freezing all year round.";
+        title1.innerText = "Antarctica";
+        heroTitle.innerText = "Welcome to Indian Knowledge";
+      }
+    });
+  </script>
+</body>
+</html>
